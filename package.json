@@ -1,0 +1,20 @@
+{
+  "name": "@blackbaud/skyux-builder-config",
+  "version": "1.0.0",
+  "description": "Configuration files for SKY UX Builder when running on different platforms.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackbaud/skyux-builder-config.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blackbaud/skyux-builder-config/issues"
+  },
+  "homepage": "https://github.com/blackbaud/skyux-builder-config#readme"
+}
