@@ -25,6 +25,22 @@ function getConfig(config) {
   };
 
   config.set({
+
+    // Related to publishing code coverage
+    coverageReporter: {
+      reporters: [
+        { 
+          type: 'cobertura' 
+        }
+      ]
+    },
+
+    // Related to publishing test results
+    reporters: [
+      'junit'
+    ],
+
+    // Related to browserstack
     browsers: Object.keys(customLaunchers),
     customLaunchers: customLaunchers,
     browserDisconnectTimeout: 3e5,
