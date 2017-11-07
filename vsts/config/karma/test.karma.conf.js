@@ -17,11 +17,13 @@ function getConfig(config) {
 
   const customLaunchers = {
     bs_windows_chrome_latest: {
+      base: 'BrowserStack',
       browser: 'chrome',
       os: 'Windows',
       os_version: '8.1'
     },
     bs_osx_chrome_latest: {
+      base: 'BrowserStack',
       browser: 'chrome',
       os: 'OS X',
       os_version: 'Yosemite'
