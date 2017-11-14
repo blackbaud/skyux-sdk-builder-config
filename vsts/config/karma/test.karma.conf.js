@@ -21,12 +21,6 @@ function getConfig(config) {
       browser: 'chrome',
       os: 'Windows',
       os_version: '8.1'
-    },
-    bs_osx_chrome_latest: {
-      base: 'BrowserStack',
-      browser: 'chrome',
-      os: 'OS X',
-      os_version: 'Yosemite'
     }
   };
 
