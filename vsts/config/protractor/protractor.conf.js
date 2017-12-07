@@ -19,10 +19,10 @@ const config = merge(common.config, {
   browserstackKey: args.bsKey,
   directConnect: false,
   capabilities: {
-    project: args.project,
     os: 'Windows',
     os_version: '10',
     'browserstack.localIdentifier': id,
+    'browserstack.build': args.project,
     'browserstack.local': true,
     'browserstack.networkLogs': true,
     'browserstack.debug': true
