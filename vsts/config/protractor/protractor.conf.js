@@ -1,10 +1,12 @@
 /*jshint jasmine: true, node: true */
 'use strict';
 
+const path = require('path');
 const BrowserstackLocal = require('browserstack-local');
 const minimist = require('minimist');
 const common = require('@blackbaud/skyux-builder/config/protractor/protractor.conf');
 const merge = require('@blackbaud/skyux-builder/utils/merge');
+const pkg = require(path.join(process.cwd(), 'package.json'));
 
 // Needed since we bypass Protractor cli
 const args = minimist(process.argv.slice(2));
@@ -12,17 +14,20 @@ const args = minimist(process.argv.slice(2));
 // This is what ties the tests to the local tunnel that's created
 const id = 'skyux-spa-' + (new Date()).getTime();
 
-// We rely on the built-in support of BrowserStack by setting browserstackUser/browserstackKey.
-// If we didn't, java will still be considering a requirement.
+// We rely on the builtin support of BrowserStack by setting browserstackUser/browserstackKey.
+// If we didn't, java would still be considered a requirement.
 const config = merge(common.config, {
   browserstackUser: args.bsUser,
   browserstackKey: args.bsKey,
+  directConnect: false,
   capabilities: {
-    'browserstack.local': true,
+    name: pkg.name || id,
+    os: 'Windows',
+    os_version: '10',
     'browserstack.localIdentifier': id,
-  },
-  jasmineNodeOpts: {
-    showColors: false
+    'browserstack.local': true,
+    'browserstack.networkLogs': true,
+    'browserstack.debug': true
   },
 
   beforeLaunch: () => {
