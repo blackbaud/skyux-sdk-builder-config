@@ -12,14 +12,12 @@ const args = minimist(process.argv.slice(2));
 // This is what ties the tests to the local tunnel that's created
 const id = 'skyux-spa-' + (new Date()).getTime();
 
-// Protractor natively accepts browserstackUser/browserstackKey, but that forces us
-// to use their baked-in seleniumAddress, which is different than what their docs say to use.
+// We rely on the built-in support of BrowserStack by setting browserstackUser/browserstackKey.
+// If we didn't, java will still be considering a requirement.
 const config = merge(common.config, {
-  directConnect: false,
-  seleniumAddress: 'http://hub-cloud.browserstack.com/wd/hub',
+  browserstackUser: args.bsUser,
+  browserstackKey: args.bsKey,
   capabilities: {
-    'browserstack.user': args.bsUser,
-    'browserstack.key':  args.bsKey,
     'browserstack.local': true,
     'browserstack.localIdentifier': id,
   },
