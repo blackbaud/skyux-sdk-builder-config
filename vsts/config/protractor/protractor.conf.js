@@ -62,8 +62,8 @@ const config = merge(common.config, {
         console.log('Not connected to Browserstack.  Nothing to close.');
         resolve();
       }
-    })
+    });
+  }
 });
 
 exports.config = config;
-
