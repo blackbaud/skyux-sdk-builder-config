@@ -20,7 +20,8 @@ function getConfig(config) {
       base: 'BrowserStack',
       browser: 'chrome',
       os: 'Windows',
-      os_version: '8.1'
+      os_version: '10',
+      project: args.project
     }
   };
 

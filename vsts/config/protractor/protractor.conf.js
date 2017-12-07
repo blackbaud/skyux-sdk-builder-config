@@ -1,12 +1,10 @@
 /*jshint jasmine: true, node: true */
 'use strict';
 
-const path = require('path');
 const BrowserstackLocal = require('browserstack-local');
 const minimist = require('minimist');
 const common = require('@blackbaud/skyux-builder/config/protractor/protractor.conf');
 const merge = require('@blackbaud/skyux-builder/utils/merge');
-const pkg = require(path.join(process.cwd(), 'package.json'));
 
 // Needed since we bypass Protractor cli
 const args = minimist(process.argv.slice(2));
@@ -21,7 +19,7 @@ const config = merge(common.config, {
   browserstackKey: args.bsKey,
   directConnect: false,
   capabilities: {
-    name: pkg.name || id,
+    project: args.project,
     os: 'Windows',
     os_version: '10',
     'browserstack.localIdentifier': id,
