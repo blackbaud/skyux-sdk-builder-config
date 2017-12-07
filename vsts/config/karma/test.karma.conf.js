@@ -21,6 +21,7 @@ function getConfig(config) {
       browser: 'chrome',
       os: 'Windows',
       os_version: '10',
+      name: 'skyux-e2e-windows-10-chrome',
       build: args.project
     }
   };

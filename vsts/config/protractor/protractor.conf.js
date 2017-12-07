@@ -22,6 +22,7 @@ const config = merge(common.config, {
     os: 'Windows',
     os_version: '10',
     build: args.project,
+    name: 'skyux-test-windows-10-chrome',
     'browserstack.localIdentifier': id,
     'browserstack.local': true,
     'browserstack.networkLogs': true,
