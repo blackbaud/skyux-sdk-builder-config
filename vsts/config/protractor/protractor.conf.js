@@ -1,10 +1,12 @@
 /*jshint jasmine: true, node: true */
+/*global browser*/
 'use strict';
 
 const BrowserstackLocal = require('browserstack-local');
 const minimist = require('minimist');
 const common = require('@blackbaud/skyux-builder/config/protractor/protractor.conf');
 const merge = require('@blackbaud/skyux-builder/utils/merge');
+const logger = require('../utils/logger');
 
 // Needed since we bypass Protractor cli
 const args = minimist(process.argv.slice(2));
@@ -22,13 +24,13 @@ const config = merge(common.config, {
     os: 'Windows',
     os_version: '10',
     build: args.project,
-    name: 'skyux-test-windows-10-chrome',
     'browserstack.localIdentifier': id,
     'browserstack.local': true,
     'browserstack.networkLogs': true,
     'browserstack.debug': true
   },
 
+  // Used to open the Browserstack tunnel
   beforeLaunch: () => {
     require('ts-node').register({ ignore: false });
     return new Promise((resolve, reject) => {
@@ -55,8 +57,23 @@ const config = merge(common.config, {
     });
   },
 
-  afterLaunch: () => {
+  // Used to grab the Browserstack session
+  onPrepare: () => {
     return new Promise((resolve, reject) => {
+      browser
+        .driver
+        .getSession()
+        .then(session => {
+          logger.session(session.getId());
+          resolve();
+        })
+        .catch(reject);
+    });
+  },
+
+  // Used to close the Browserstack tunnel
+  afterLaunch: () => {
+    return new Promise((resolve) => {
       if (exports.bsLocal) {
         console.log('Closing Browserstack connection.');
         exports.bsLocal.stop(resolve);
