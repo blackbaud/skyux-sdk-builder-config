@@ -4,6 +4,7 @@
 const path = require('path');
 const minimist = require('minimist');
 const shared = require('@blackbaud/skyux-builder/config/karma/shared.karma.conf');
+const logger = require('../utils/logger');
 
 // Needed since we bypass Karma cli
 const args = minimist(process.argv.slice(2));
@@ -20,7 +21,8 @@ function getConfig(config) {
       base: 'BrowserStack',
       browser: 'chrome',
       os: 'Windows',
-      os_version: '8.1'
+      os_version: '10',
+      build: args.project
     }
   };
 
@@ -31,6 +33,17 @@ function getConfig(config) {
   config.reporters.push('junit');
   config.coverageReporter.reporters.push({
     type: 'cobertura'
+  });
+
+  // Custom plugin used to read the Browserstack session
+  config.reporters.push('blackbaud-browserstack');
+  config.plugins.push({
+    'reporter:blackbaud-browserstack': [
+      'type',
+      function (/* BrowserStack:sessionMapping */ sessions) {
+        this.onBrowserComplete = (browser) => logger.session(sessions[browser.id]);
+      }
+    ]
   });
 
   config.set({

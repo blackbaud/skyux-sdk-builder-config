@@ -4,6 +4,9 @@
   "description": "Configuration files for SKY UX Builder when running on different platforms.",
   "main": "index.js",
   "scripts": {
+    "jscs": "jscs vsts",
+    "jshint": "jshint vsts",
+    "lint": "npm run jscs && npm run jshint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,11 +21,14 @@
   },
   "homepage": "https://github.com/blackbaud/skyux-builder-config#readme",
   "dependencies": {
+    "browserstack-local": "1.3.0",
     "karma-browserstack-launcher": "1.3.0",
     "karma-junit-reporter": "1.2.0",
     "minimist": "1.2.0"
   },
   "devDependencies": {
+    "jscs": "3.0.7",
+    "jshint": "2.9.5",
     "karma": "*"
   },
   "peerDependencies": {
