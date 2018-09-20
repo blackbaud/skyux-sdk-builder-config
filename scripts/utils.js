@@ -2,6 +2,7 @@
 'use strict';
 
 const spawn = require('cross-spawn');
+const minimist = require('minimist');
 
 function dirHasChanges(dir) {
   return exec('git', ['status', dir, '--porcelain'])
@@ -52,18 +53,20 @@ function exec(cmd, args, opts) {
 }
 
 function getBuildId() {
+  const args = minimist(process.argv.slice(2));
+
   let buildId;
 
   switch (args.platform) {
     case 'travis':
-    buildId = process.env.TRAVIS_BUILD_NUMBER;
-    break;
+      buildId = process.env.TRAVIS_BUILD_NUMBER;
+      break;
     case 'vsts':
-    buildId = process.env.BUILD_BUILDID;
-    break;
+      buildId = process.env.BUILD_BUILDID;
+      break;
     default:
-    buildId = new Date().getTime();
-    break;
+      buildId = new Date().getTime();
+      break;
   }
 
   return buildId;

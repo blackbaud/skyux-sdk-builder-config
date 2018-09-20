@@ -2,7 +2,6 @@
 'use strict';
 
 const fs = require('fs-extra');
-const minimist = require('minimist');
 const path = require('path');
 const rimraf = require('rimraf');
 const logger = require('@blackbaud/skyux-logger');
@@ -13,7 +12,6 @@ const {
   getBuildId
 } = require('./utils');
 
-const args = minimist(process.argv.slice(2));
 const baselineScreenshotsDir = 'screenshots-baseline';
 const tempDir = '.skypagesvisualbaselinetemp';
 
@@ -34,7 +32,9 @@ function handleBaselineScreenshots() {
     .then(() => exec('git', ['checkout', branch], opts))
     .then(() => exec('git', ['status'], opts))
     .then(() => exec('git', ['add', baselineScreenshotsDir], opts))
-    .then(() => exec('git', ['commit', '-m', `Build #${buildId}: Added new baseline screenshots. [ci skip]`], opts))
+    .then(() => exec('git', [
+      'commit', '-m', `Build #${buildId}: Added new baseline screenshots. [ci skip]`
+    ], opts))
     .then(() => exec('git', ['push', '-fq', 'origin', branch], opts))
     .then(() => {
       logger.info('New baseline images saved.');
