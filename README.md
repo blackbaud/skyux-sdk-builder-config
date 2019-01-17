@@ -1,6 +1,6 @@
-# SKY UX Builder Config
+# SKY UX SDK Builder Config
 
-Configuration files for SKY UX Builder when running on different platforms.
+Configuration files for `@skyux-sdk/builder` when running on different platforms.
 
 ## Environment Configuration
 
