@@ -3,8 +3,8 @@
 'use strict';
 
 const BrowserstackLocal = require('browserstack-local');
-const common = require('@blackbaud/skyux-builder/config/protractor/protractor.conf');
-const merge = require('@blackbaud/skyux-builder/utils/merge');
+const common = require('@skyux-sdk/builder/config/protractor/protractor.conf');
+const merge = require('@skyux-sdk/builder/utils/merge');
 const logger = require('@blackbaud/skyux-logger');
 const browserUtils = require('../utils/browsers');
 
