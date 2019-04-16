@@ -41,9 +41,22 @@ function getConfig(config, env) {
 
   // For backwards compatability, Karma overwrites arrays
   config.reporters.push('junit');
-  config.coverageReporter.reporters.push({
-    type: 'cobertura'
-  });
+
+  // Backwards compatability for coverage reporters
+  // https://github.com/blackbaud/skyux-sdk-builder/commit/319d2ed2e63cd5208490e6816fefecb68850bbe1#diff-51c68ad4ecf9f8de675a11d4ee5a3fe7R75
+  const coberturaReportType = 'cobertura';
+
+  // @skyux-sdk/builder <= 3.5.3
+  if (config.coverageReporter && Array.isArray(config.coverageReporter.reporters)) {
+    config.coverageReporter.reporters.push({
+      type: coberturaReportType
+    });
+  }
+
+  // @skyux-sdk/builder >= 3.6.0
+  if (config.coverageIstanbulReporter && Array.isArray(config.coverageIstanbulReporter.reports)) {
+    config.coverageIstanbulReporter.reports.push(coberturaReportType);
+  }
 
   // These are general VSTS overrides, regardless of Browserstack
   const overrides = {
