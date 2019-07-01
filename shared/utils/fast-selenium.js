@@ -9,6 +9,7 @@ const https = require('https');
 
 const keepAliveTimeout = 30 * 1000;
 
+// eslint-disable-next-line no-prototype-builtins
 if (http.globalAgent && http.globalAgent.hasOwnProperty('keepAlive')) {
   http.globalAgent.keepAlive = true;
   https.globalAgent.keepAlive = true;
@@ -32,9 +33,9 @@ if (http.globalAgent && http.globalAgent.hasOwnProperty('keepAlive')) {
     if (options.protocol === 'https:') {
       options.agent = secureAgent;
       return httpsRequest(options, callback);
-    } else {
-      options.agent = agent;
-      return httpRequest(options, callback);
     }
+
+    options.agent = agent;
+    return httpRequest(options, callback);
   };
 }

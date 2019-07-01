@@ -6,7 +6,7 @@
   "scripts": {
     "jscs": "jscs scripts shared travis vsts",
     "jshint": "jshint scripts shared travis vsts",
-    "lint": "npm run jscs && npm run jshint",
+    "lint": "eslint -c .eslintrc.json scripts shared travis vsts index.js",
     "test": "npm run lint"
   },
   "repository": {
@@ -22,21 +22,22 @@
   "homepage": "https://github.com/blackbaud/skyux-builder-config#readme",
   "dependencies": {
     "@blackbaud/skyux-logger": "1.1.1",
-    "browserstack-local": "1.3.0",
+    "browserstack-local": "1.4.0",
     "cross-spawn": "6.0.5",
     "fs-extra": "7.0.1",
-    "karma-browserstack-launcher": "Blackbaud-BobbyEarl/karma-browserstack-launcher#enable-logging-for-api",
+    "karma-browserstack-launcher": "1.5.1",
     "karma-junit-reporter": "1.2.0",
     "lodash.get": "4.4.2",
     "minimist": "1.2.0",
-    "rimraf": "2.6.2"
+    "rimraf": "2.6.3"
   },
   "devDependencies": {
-    "jscs": "3.0.7",
-    "jshint": "2.9.5",
-    "karma": "*"
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.17.3",
+    "karma": "4.1.0"
   },
   "peerDependencies": {
-    "karma": "*"
+    "karma": "^4.0.0"
   }
 }
