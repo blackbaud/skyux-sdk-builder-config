@@ -2,9 +2,13 @@
 /*global browser*/
 'use strict';
 
-const BrowserstackLocal = require('browserstack-local');
+// eslint-disable-next-line import/no-unresolved
 const common = require('@skyux-sdk/builder/config/protractor/protractor.conf');
+
+// eslint-disable-next-line import/no-unresolved
 const merge = require('@skyux-sdk/builder/utils/merge');
+
+const BrowserstackLocal = require('browserstack-local');
 const logger = require('@blackbaud/skyux-logger');
 const browserUtils = require('../utils/browsers');
 
@@ -77,6 +81,8 @@ function getConfig(env) {
 
       // Used to grab the Browserstack session
       onPrepare: () => new Promise((resolve, reject) => {
+
+        // eslint-disable-next-line import/no-unresolved
         require('ts-node').register({ ignore: false });
 
         // Attach config to the browser object to allow the

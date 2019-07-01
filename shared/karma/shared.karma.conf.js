@@ -1,6 +1,7 @@
 /* jshint node: true */
 'use strict';
 
+// eslint-disable-next-line import/no-unresolved
 const applySharedBuilderConfig = require('@skyux-sdk/builder/config/karma/test.karma.conf');
 const logger = require('@blackbaud/skyux-logger');
 const path = require('path');
@@ -21,7 +22,9 @@ function getLaunchers(config, env) {
   // Karma needs object with key/value pairs.
   if (browsers && browsers.length) {
     const launchers = {};
-    browsers.forEach(browser => launchers[browser.key] = browser);
+    browsers.forEach((browser) => {
+      launchers[browser.key] = browser;
+    });
     return launchers;
   }
 }
