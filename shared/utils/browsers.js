@@ -114,6 +114,7 @@ module.exports = {
       allowedPropertiesKeys.forEach(key => {
         if (browserMapped[key]) {
           browserMapped[allowedPropertiesMap[key]] = browserMapped[key];
+          browserMapped.base = 'BrowserStack';
           delete browserMapped[key];
         }
       });

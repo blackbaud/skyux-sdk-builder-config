@@ -22,10 +22,9 @@
   "homepage": "https://github.com/blackbaud/skyux-builder-config#readme",
   "dependencies": {
     "@blackbaud/skyux-logger": "1.1.1",
-    "browserstack-local": "1.4.0",
     "cross-spawn": "6.0.5",
     "fs-extra": "7.0.1",
-    "karma-browserstack-launcher": "1.4.0",
+    "karma-browserstack-launcher": "1.5.1",
     "karma-junit-reporter": "1.2.0",
     "lodash.get": "4.4.2",
     "minimist": "1.2.0",

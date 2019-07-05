@@ -82,10 +82,7 @@ function getConfig(config, env) {
     browserNoActivityTimeout: 6e5,
     captureTimeout: 6e5,
     browserStack: {
-      enableLoggingForApi: true,
-      port: 9876,
-      pollingTimeout: 10000,
-      timeout: 600
+      enableLoggingForApi: true
     }
   };
 
