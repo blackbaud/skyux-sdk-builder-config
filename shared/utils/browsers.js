@@ -18,7 +18,7 @@ const bsBrowserEdge = {
 
 const bsBrowserIE = {
   os: 'Windows',
-  osVersion: '10',
+  osVersion: '7',
   browser: 'IE',
   browserVersion: '11'
 };
