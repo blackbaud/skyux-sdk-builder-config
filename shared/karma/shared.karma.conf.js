@@ -85,7 +85,7 @@ function getConfig(config, env) {
       enableLoggingForApi: true,
       port: 9876,
       pollingTimeout: 10000,
-      timeout: 1000
+      timeout: 600
     }
   };
 
