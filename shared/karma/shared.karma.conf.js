@@ -94,10 +94,8 @@ function getConfig(config, env) {
   if (launchers) {
     overrides.customLaunchers = launchers;
     overrides.browsers = Object.keys(launchers);
-    overrides.browserStack = {
-      username: env.BROWSER_STACK_USERNAME,
-      accessKey: env.BROWSER_STACK_ACCESS_KEY
-    };
+    overrides.browserStack.username = env.BROWSER_STACK_USERNAME;
+    overrides.browserStack.accessKey = env.BROWSER_STACK_ACCESS_KEY;
 
     // Custom plugin used to read the Browserstack session
     // Pushing to the original config since arrays aren't merged.
