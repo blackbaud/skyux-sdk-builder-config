@@ -22,7 +22,7 @@
   "homepage": "https://github.com/blackbaud/skyux-builder-config#readme",
   "dependencies": {
     "@blackbaud/skyux-logger": "1.1.1",
-    "browserstack-local": "1.4.0",
+    "browserstack-local": "1.4.3",
     "cross-spawn": "6.0.5",
     "fs-extra": "7.0.1",
     "karma-browserstack-launcher": "1.5.1",
@@ -34,8 +34,8 @@
   "devDependencies": {
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "2.17.3",
-    "karma": "4.1.0"
+    "eslint-plugin-import": "2.20.0",
+    "karma": "4.4.1"
   },
   "peerDependencies": {
     "karma": "^4.0.0"
