@@ -28,7 +28,7 @@
     "karma-browserstack-launcher": "1.5.1",
     "karma-junit-reporter": "1.2.0",
     "lodash.get": "4.4.2",
-    "minimist": "1.2.0",
+    "minimist": "1.2.2",
     "rimraf": "2.6.3"
   },
   "devDependencies": {
