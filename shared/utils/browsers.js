@@ -100,14 +100,18 @@ module.exports = {
 
       // Copies properties so we don't alter original.
       // Creates a unique key
-      const browserMapped = Object.assign({}, browser, {
-        key: [
-          browser.os || 'osDefault',
-          browser.osVersion || 'osVersionDefault',
-          browser.browser || 'browserDefault',
-          browser.browserVersion || 'browserVersionDefault'
-        ].join('_')
-      }, defaults);
+      const browserMapped = {
+        ...browser,
+        ...{
+          key: [
+            browser.os || 'osDefault',
+            browser.osVersion || 'osVersionDefault',
+            browser.browser || 'browserDefault',
+            browser.browserVersion || 'browserVersionDefault'
+          ].join('_')
+        },
+        ...defaults
+      };
 
       // Copies the allowed properties to their mapped values.
       // Deletes the original property.
