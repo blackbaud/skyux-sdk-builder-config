@@ -21,9 +21,9 @@
   "dependencies": {
     "@blackbaud/skyux-logger": "1.1.2",
     "browserstack-local": "1.4.5",
-    "cross-spawn": "7.0.1",
+    "cross-spawn": "7.0.2",
     "fs-extra": "9.0.0",
-    "karma-browserstack-launcher": "1.5.1",
+    "karma-browserstack-launcher": "1.5.2",
     "karma-junit-reporter": "2.0.1",
     "lodash.get": "4.4.2",
     "minimist": "1.2.5",
