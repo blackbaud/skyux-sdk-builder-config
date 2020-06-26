@@ -25,14 +25,13 @@ const bsBrowserIE = {
 
 const bsBrowserFirefox = {
   os: 'OS X',
-  osVersion: 'Mojave',
-  browser: 'Firefox',
-  browserVersion: '68.0 beta'
+  osVersion: 'Catalina',
+  browser: 'Firefox'
 };
 
 const bsBrowserSafari = {
   os: 'OS X',
-  osVersion: 'Mojave',
+  osVersion: 'Catalina',
   browser: 'Safari'
 };
 
