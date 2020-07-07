@@ -25,6 +25,8 @@ function dirHasChanges(dir) {
 }
 
 function exec(cmd, args, opts) {
+  console.log('Spawning', cmd, args);
+
   const cp = spawn(cmd, args, opts);
 
   return new Promise((resolve, reject) => {

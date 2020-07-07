@@ -21,6 +21,8 @@ function handleBaselineScreenshots() {
   const gitUrl = process.env.VISUAL_BASELINES_REPO_URL;
   const buildId = getBuildId();
 
+  console.log(`Handling baseline screenshots for build ${buildId}`);
+
   return Promise.resolve()
     .then(() => exec('git', ['config', '--global', 'user.email', '"sky-build-user@blackbaud.com"']))
     .then(() => exec('git', ['config', '--global', 'user.name', '"Blackbaud Sky Build User"']))
