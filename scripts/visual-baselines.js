@@ -27,10 +27,20 @@ function handleBaselineScreenshots() {
     .then(() => exec('git', ['config', '--global', 'user.email', '"sky-build-user@blackbaud.com"']))
     .then(() => exec('git', ['config', '--global', 'user.name', '"Blackbaud Sky Build User"']))
     .then(() => exec('git', ['clone', gitUrl, '--single-branch', tempDir]))
-    .then(() => fs.copy(
-      baselineScreenshotsDir,
-      path.resolve(tempDir, baselineScreenshotsDir)
-    ))
+    .then(() => new Promise((resolve, reject) => {
+      console.log('Copying baseline screenshots to cloned repo', gitUrl);
+      try {
+        fs.copySync(
+          baselineScreenshotsDir,
+          path.resolve(tempDir, baselineScreenshotsDir)
+        );
+        console.log('Successfully copied baseline screenshots.');
+        resolve();
+      } catch (err) {
+        console.error('Error copying baseline screenshots', err);
+        reject(err);
+      }
+    }))
     .then(() => exec('git', ['checkout', branch], opts))
     .then(() => exec('git', ['status'], opts))
     .then(() => exec('git', ['add', baselineScreenshotsDir], opts))
