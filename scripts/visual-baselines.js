@@ -40,7 +40,7 @@ function handleBaselineScreenshots() {
         console.error('Error copying baseline screenshots', err);
         reject(err);
       }
-    })
+    }))
     .then(() => exec('git', ['checkout', branch], opts))
     .then(() => exec('git', ['status'], opts))
     .then(() => exec('git', ['add', baselineScreenshotsDir], opts))
