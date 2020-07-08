@@ -41,10 +41,12 @@ function exec(cmd, args, opts) {
     });
 
     cp.on('error', (err) => {
+      console.log(`Error spawning`, cmd, err);
       reject(err);
     });
 
     cp.on('exit', (code) => {
+      console.log(`Exiting`, cmd, code);
       if (code === 0) {
         resolve(output);
       } else {
