@@ -13,6 +13,13 @@ const args = minimist(process.argv.slice(2));
  * @param {Object} config
  */
 function getConfig(config) {
+  config.set({
+    browserDisconnectTimeout: 60000,
+    browserDisconnectTolerance: 2,
+    browserNoActivityTimeout: 30000,
+    captureTimeout: 60000
+  });
+
   shared(config, {
     BROWSER_STACK_USERNAME: args.bsUser,
     BROWSER_STACK_ACCESS_KEY: args.bsKey,
