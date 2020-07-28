@@ -77,6 +77,8 @@ function getConfig(config, env) {
       }
     },
 
+    logLevel: config.LOG_DEBUG,
+
     browserDisconnectTimeout: 6e5,
     browserDisconnectTolerance: 3,
     browserNoActivityTimeout: 6e5,
