@@ -88,6 +88,9 @@ module.exports = {
       `skyPagesConfig.skyux.testSettings.${testSuite}.browserSet`,
       ''
     );
+
+    console.log('getBrowsers:', config, configBrowserSetRequsted);
+
     const configBrowserSetValidated = validateBrowserSet(configBrowserSetRequsted);
     const allowedPropertiesMap = propertiesMap[testSuite];
     const allowedPropertiesKeys = Object.keys(allowedPropertiesMap);
