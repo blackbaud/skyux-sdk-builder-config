@@ -95,8 +95,7 @@ module.exports = {
       ''
     );
 
-    console.log('getBrowsers:', defaultBrowserSet, pipelineBrowserSet);
-
+    // If the pipeline settings set `browserSet` to `false`, ignore setting up BrowserStack.
     if (pipelineBrowserSet === false) {
       return;
     }
