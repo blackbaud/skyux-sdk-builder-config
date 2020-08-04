@@ -97,7 +97,7 @@ module.exports = {
 
     console.log('getBrowsers:', defaultBrowserSet, pipelineBrowserSet);
 
-    if (!pipelineBrowserSet) {
+    if (pipelineBrowserSet === false) {
       return;
     }
 
