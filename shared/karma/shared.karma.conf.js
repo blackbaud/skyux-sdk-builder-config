@@ -11,8 +11,8 @@ const browserUtils = require('../utils/browsers');
  * Gets any custom defined browsers and converts them to launchers.
  * @param {*} config
  */
-function getLaunchers(config, env) {
-  const browsers = browserUtils.getBrowsers(config, 'unit', {
+function getLaunchers(config, env, platform) {
+  const browsers = browserUtils.getBrowsers(config, 'unit', platform, {
     base: 'BrowserStack',
     name: 'skyux test',
     build: env.BROWSER_STACK_BUILD_ID,
@@ -29,7 +29,7 @@ function getLaunchers(config, env) {
   }
 }
 
-function getConfig(config, env) {
+function getConfig(platform, config, env) {
 
   if (!env.BROWSER_STACK_USERNAME) {
     throw Error('Please provide a BrowserStack username!');
@@ -92,7 +92,7 @@ function getConfig(config, env) {
   };
 
   // Only override certain properties if there are customLaunchers
-  const launchers = getLaunchers(config, env);
+  const launchers = getLaunchers(config, env, platform);
   if (launchers) {
     overrides.customLaunchers = launchers;
     overrides.browsers = Object.keys(launchers);

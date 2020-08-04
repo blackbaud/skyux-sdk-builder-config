@@ -13,7 +13,7 @@ function getConfig(config) {
     captureTimeout: 60000
   });
 
-  shared(config, {
+  shared('gh-actions', config, {
     BROWSER_STACK_USERNAME: process.env.BROWSER_STACK_USERNAME,
     BROWSER_STACK_ACCESS_KEY: process.env.BROWSER_STACK_ACCESS_KEY,
     BROWSER_STACK_BUILD_ID: process.env.BROWSER_STACK_BUILD_ID,

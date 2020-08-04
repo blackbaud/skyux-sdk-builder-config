@@ -13,7 +13,7 @@ const args = minimist(process.argv.slice(2));
  * @param {Object} config
  */
 function getConfig(config) {
-  shared(config, {
+  shared('vsts', config, {
     BROWSER_STACK_USERNAME: args.bsUser,
     BROWSER_STACK_ACCESS_KEY: args.bsKey,
     BROWSER_STACK_BUILD_ID: args.buildNumber,
