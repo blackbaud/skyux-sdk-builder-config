@@ -9,7 +9,7 @@ const shared = require('../../../shared/karma/shared.karma.conf');
  * @param {Object} config
  */
 function getConfig(config) {
-  shared(config, {
+  shared('travis', config, {
     BROWSER_STACK_USERNAME: process.env.BROWSER_STACK_USERNAME,
     BROWSER_STACK_ACCESS_KEY: process.env.BROWSER_STACK_ACCESS_KEY,
     BROWSER_STACK_BUILD_ID: process.env.TRAVIS_BUILD_NUMBER,

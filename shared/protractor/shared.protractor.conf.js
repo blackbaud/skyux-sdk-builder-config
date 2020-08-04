@@ -23,8 +23,8 @@ const id = 'skyux-spa-' + (new Date()).getTime();
  * Gets any custom defined browsers.
  * @param {*} config
  */
-function getCapabilities(config, env) {
-  return browserUtils.getBrowsers(config, 'e2e', {
+function getCapabilities(config, env, platform) {
+  return browserUtils.getBrowsers(config, 'e2e', platform, {
     name: 'skyux e2e',
     build: env.BROWSER_STACK_BUILD_ID,
     project: env.BROWSER_STACK_PROJECT,
@@ -38,9 +38,9 @@ function getCapabilities(config, env) {
   });
 }
 
-function getConfig(env) {
+function getConfig(platform, env) {
   let overrides = {};
-  const capabilities = getCapabilities(common.config, env);
+  const capabilities = getCapabilities(common.config, env, platform);
 
   // In the case of e2e, there's nothing we need to override for VSTS that's not specific to BS.
   if (capabilities && capabilities.length) {

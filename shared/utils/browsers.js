@@ -81,17 +81,23 @@ function validateBrowserSet(configBrowserSet) {
 }
 
 module.exports = {
-  getBrowsers: (config, testSuite, defaults) => {
+  getBrowsers: (config, testSuite, platform, defaults) => {
 
-    const configBrowserSetRequsted = get(
+    const defaultBrowserSet = get(
       config,
       `skyPagesConfig.skyux.testSettings.${testSuite}.browserSet`,
       ''
     );
 
-    console.log('getBrowsers:', config, configBrowserSetRequsted);
+    const pipelineBrowserSet = get(
+      config,
+      `skyPagesConfig.skyux.pipelineSettings.${platform}.testSettings.${testSuite}.browserSet`,
+      ''
+    );
 
-    const configBrowserSetValidated = validateBrowserSet(configBrowserSetRequsted);
+    console.log('getBrowsers:', defaultBrowserSet, pipelineBrowserSet);
+
+    const configBrowserSetValidated = validateBrowserSet(defaultBrowserSet || pipelineBrowserSet);
     const allowedPropertiesMap = propertiesMap[testSuite];
     const allowedPropertiesKeys = Object.keys(allowedPropertiesMap);
 
