@@ -97,6 +97,10 @@ module.exports = {
 
     console.log('getBrowsers:', defaultBrowserSet, pipelineBrowserSet);
 
+    if (!pipelineBrowserSet) {
+      return;
+    }
+
     const configBrowserSetValidated = validateBrowserSet(pipelineBrowserSet || defaultBrowserSet);
     const allowedPropertiesMap = propertiesMap[testSuite];
     const allowedPropertiesKeys = Object.keys(allowedPropertiesMap);
