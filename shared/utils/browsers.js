@@ -16,13 +16,6 @@ const bsBrowserEdge = {
   browser: 'Edge'
 };
 
-const bsBrowserIE = {
-  os: 'Windows',
-  osVersion: '8.1',
-  browser: 'IE',
-  browserVersion: '11'
-};
-
 const bsBrowserFirefox = {
   os: 'OS X',
   osVersion: 'Big Sur',
@@ -41,13 +34,11 @@ const browserSets = {
   ],
   quirky: [
     bsBrowserChrome,
-    bsBrowserEdge,
-    bsBrowserIE
+    bsBrowserEdge
   ],
   paranoid: [
     bsBrowserChrome,
     bsBrowserEdge,
-    bsBrowserIE,
     bsBrowserFirefox,
     bsBrowserSafari
   ]
